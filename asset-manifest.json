@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/bsa-travel-app/static/css/main.67b89764.css",
-    "main.js": "/bsa-travel-app/static/js/main.2c3257aa.js",
+    "main.css": "/bsa-travel-app/static/css/main.40c947b5.css",
+    "main.js": "/bsa-travel-app/static/js/main.417c9598.js",
     "index.html": "/bsa-travel-app/index.html",
-    "main.67b89764.css.map": "/bsa-travel-app/static/css/main.67b89764.css.map",
-    "main.2c3257aa.js.map": "/bsa-travel-app/static/js/main.2c3257aa.js.map"
+    "main.40c947b5.css.map": "/bsa-travel-app/static/css/main.40c947b5.css.map",
+    "main.417c9598.js.map": "/bsa-travel-app/static/js/main.417c9598.js.map"
   },
   "entrypoints": [
-    "static/css/main.67b89764.css",
-    "static/js/main.2c3257aa.js"
+    "static/css/main.40c947b5.css",
+    "static/js/main.417c9598.js"
   ]
 }
