@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/bsa-travel-app/static/css/main.67b89764.css",
+    "main.js": "/bsa-travel-app/static/js/main.2c3257aa.js",
+    "index.html": "/bsa-travel-app/index.html",
+    "main.67b89764.css.map": "/bsa-travel-app/static/css/main.67b89764.css.map",
+    "main.2c3257aa.js.map": "/bsa-travel-app/static/js/main.2c3257aa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.67b89764.css",
+    "static/js/main.2c3257aa.js"
+  ]
+}
