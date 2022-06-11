@@ -1,9 +1,7 @@
 import Filter from 'components/Filter';
 import TripsList from 'components/TripsList';
 
-import trips from '../../db/trips.json';
-
-export default function HomePage() {
+export default function HomePage({ trips }) {
   return (
     <>
       <Filter />

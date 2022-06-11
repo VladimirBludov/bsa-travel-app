@@ -5,7 +5,7 @@ import { Container, Form, SignUnLink, Title } from './SignInPage.styles';
 export default function SignInPage() {
   return (
     <Container>
-      <Form autocomplete="off">
+      <Form autoComplete="off">
         <Title>Sign In</Title>
         <Input title="Email" name="email" type="email" required />
         <Input

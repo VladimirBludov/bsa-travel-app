@@ -4,7 +4,7 @@ export default function Filter() {
   return (
     <Section>
       <h2 className="visually-hidden">Trips filter</h2>
-      <Form autocomplete="off">
+      <Form autoComplete="off">
         <InputStyled
           title="Search by name"
           hidden

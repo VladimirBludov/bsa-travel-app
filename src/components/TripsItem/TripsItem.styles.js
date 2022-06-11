@@ -21,13 +21,6 @@ export const Content = styled.div`
   padding: 20px 30px;
 `;
 
-export const Value = styled.strong`
-  display: block;
-  color: var(--color-blue-200);
-  font-size: var(--font-size-600);
-  line-height: 1;
-`;
-
 export const DiscoverBtn = styled(Link)`
   display: block;
   width: 100%;
