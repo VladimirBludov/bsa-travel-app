@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import { InputContainer, InputStyled, InputTitle } from './Input.styles';
 
-export default function Input({ title = '', ...attrs }) {
+export default function Input({ title = '', hidden = false, ...attrs }) {
+  const className = hidden ? 'visually-hidden' : '';
+
   return (
     <InputContainer>
-      <InputTitle>{title}</InputTitle>
+      <InputTitle className={className}>{title}</InputTitle>
       <InputStyled {...attrs} />
     </InputContainer>
   );
