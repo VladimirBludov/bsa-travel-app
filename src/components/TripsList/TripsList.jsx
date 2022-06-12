@@ -7,11 +7,13 @@ export default function TripsList({ trips }) {
   return (
     <TripsContainer>
       <h2 className="visually-hidden">Trips List</h2>
-      <Trips>
-        {trips.map(trip => (
-          <TripsItem key={trip.id} trip={trip} />
-        ))}
-      </Trips>
+      {trips && (
+        <Trips>
+          {trips.map(trip => (
+            <TripsItem key={trip.id} trip={trip} />
+          ))}
+        </Trips>
+      )}
     </TripsContainer>
   );
 }

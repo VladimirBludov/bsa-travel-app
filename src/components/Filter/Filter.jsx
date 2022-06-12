@@ -1,6 +1,14 @@
+import PropTypes from 'prop-types';
 import { Form, InputStyled, Section, Select } from './Filter.styles';
 
-export default function Filter() {
+export default function Filter({
+  filter,
+  duration,
+  level,
+  getFilter,
+  getDuration,
+  getLevel,
+}) {
   return (
     <Section>
       <h2 className="visually-hidden">Trips filter</h2>
@@ -10,11 +18,13 @@ export default function Filter() {
           hidden
           name="search"
           type="search"
+          value={filter}
+          onChange={getFilter}
           placeholder="search by title"
         />
         <label>
           <span className="visually-hidden">Search by duration</span>
-          <Select name="duration">
+          <Select name="duration" value={duration} onChange={getDuration}>
             <option value="">duration</option>
             <option value="0_x_5">&lt; 5 days</option>
             <option value="5_x_10">&lt; 10 days</option>
@@ -23,7 +33,7 @@ export default function Filter() {
         </label>
         <label>
           <span className="visually-hidden">Search by level</span>
-          <Select name="level">
+          <Select name="level" value={level} onChange={getLevel}>
             <option value="">level</option>
             <option value="easy">easy</option>
             <option value="moderate">moderate</option>
@@ -34,3 +44,12 @@ export default function Filter() {
     </Section>
   );
 }
+
+Filter.propTypes = {
+  filter: PropTypes.string.isRequired,
+  duration: PropTypes.string.isRequired,
+  level: PropTypes.string.isRequired,
+  getFilter: PropTypes.func.isRequired,
+  getDuration: PropTypes.func.isRequired,
+  getLevel: PropTypes.func.isRequired,
+};
