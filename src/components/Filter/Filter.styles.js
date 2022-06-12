@@ -1,7 +1,7 @@
 import Input from 'components/Input';
 import styled from 'styled-components';
-import arrowDownIcon from './icons/arrow-down.svg';
-import searchIcon from './icons/search.svg';
+import arrowDownIcon from '../../assets/icons/arrow-down.svg';
+import searchIcon from '../../assets/icons/search.svg';
 
 export const Section = styled.section`
   display: flex;

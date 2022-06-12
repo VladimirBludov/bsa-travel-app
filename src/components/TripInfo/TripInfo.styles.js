@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import calendarIcon from './icons/calendar.svg';
+import calendarIcon from '../../assets/icons/calendar.svg';
 
 export const Container = styled.div`
   width: 100%;
@@ -25,7 +25,7 @@ export const Duration = styled.span`
   padding-left: 25px;
   background-image: url(${calendarIcon});
   background-repeat: no-repeat;
-  background-position: 0 50%;
+  background-position: 0 25%;
   background-size: 15px;
 `;
 

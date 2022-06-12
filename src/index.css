@@ -84,6 +84,10 @@ button {
   cursor: pointer;
 }
 
+strong {
+  font-weight: bold;
+}
+
 .disable-scroll {
   overflow: hidden;
 }
