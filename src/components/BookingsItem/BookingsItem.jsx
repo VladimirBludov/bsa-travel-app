@@ -3,8 +3,9 @@ import { useEffect, useState } from 'react';
 import Moment from 'moment';
 import { Booking, CancelBtn, Title } from './BookingsItem.styles';
 
-export default function BookingsItem({ booking }) {
+export default function BookingsItem({ booking, removeBooking }) {
   const {
+    id,
     trip: { title },
     guests,
     date,
@@ -23,7 +24,11 @@ export default function BookingsItem({ booking }) {
       <span>{guests} guests</span>
       <span>{formatDate}</span>
       <span>{totalPrice} $</span>
-      <CancelBtn type="button" title="Cancel booking">
+      <CancelBtn
+        type="button"
+        title="Cancel booking"
+        onClick={() => removeBooking(id)}
+      >
         <span className="visually-hidden">Cancel booking</span>×
       </CancelBtn>
     </Booking>
@@ -39,4 +44,5 @@ BookingsItem.propTypes = {
       title: PropTypes.string.isRequired,
     }),
   }),
+  removeBooking: PropTypes.func.isRequired,
 };
