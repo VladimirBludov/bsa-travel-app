@@ -37,7 +37,6 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  margin-right: calc(-1 * (100vw - 100%));
 }
 
 body {
