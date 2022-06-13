@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useMemo, useState } from 'react';
+import { Navigate, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   BookBtn,
@@ -15,40 +15,35 @@ import Modal from 'components/Modal';
 import TripPopup from 'components/TripPopup';
 
 export default function TripPage({ trips }) {
-  const [trip, setTrip] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
   const { tripId } = useParams();
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    const trip = trips.find(({ id }) => id === tripId);
+  const trip = useMemo(
+    () => trips.find(({ id }) => id === tripId),
+    [tripId, trips]
+  );
 
-    if (!trip) {
-      return navigate('/');
-    }
-
-    setTrip(trip);
-  }, [navigate, tripId, trips]);
+  if (!trip) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <>
       <Container>
-        {trip && (
-          <Trip>
-            <Picture src={trip.image} alt="trip placeholder" />
-            <Content>
-              <TripInfo
-                title={trip.title}
-                duration={trip.duration}
-                level={trip.level}
-              />
-              <Description>{trip.description}</Description>
-              <TripPrice price={trip.price} />
-              <BookBtn text="Book a trip" onClick={() => setShowModal(true)} />
-            </Content>
-          </Trip>
-        )}
+        <Trip>
+          <Picture src={trip.image} alt="trip placeholder" />
+          <Content>
+            <TripInfo
+              title={trip.title}
+              duration={trip.duration}
+              level={trip.level}
+            />
+            <Description>{trip.description}</Description>
+            <TripPrice price={trip.price} />
+            <BookBtn text="Book a trip" onClick={() => setShowModal(true)} />
+          </Content>
+        </Trip>
       </Container>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
