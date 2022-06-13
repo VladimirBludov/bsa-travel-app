@@ -17,13 +17,23 @@ import {
 
 export default function Header() {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   const isAuthPage = pathname === '/sign-up' || pathname === '/sign-in';
+  const isHomePage = pathname === '/';
+
+  const goHomePage = () => {
+    if (isHomePage) {
+      return;
+    }
+
+    navigate('/');
+  };
 
   return (
     <HeaderStyled>
       <Container>
-        <Logo to="/">Travel App</Logo>
+        <Logo onClick={goHomePage}>Travel App</Logo>
         {!isAuthPage && (
           <Nav>
             <NavList>

@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { FiBriefcase } from 'react-icons/fi';
 import { AiOutlineUser } from 'react-icons/ai';
@@ -10,13 +10,14 @@ export const HeaderStyled = styled.header`
   border-bottom: 1px solid var(--color-gray);
 `;
 
-export const Logo = styled(Link)`
+export const Logo = styled.span`
   margin: 0;
   color: var(--color-blue-400);
   font-weight: 600;
   font-size: var(--font-size-500);
   font-family: 'Playfair Display', serif;
   text-decoration: none;
+  cursor: pointer;
 `;
 
 export const Container = styled.div`
