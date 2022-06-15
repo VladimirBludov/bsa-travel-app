@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import {
   ButtonSignOut,
   Container,
@@ -17,23 +17,13 @@ import {
 
 export default function Header() {
   const { pathname } = useLocation();
-  const navigate = useNavigate();
 
   const isAuthPage = pathname === '/sign-up' || pathname === '/sign-in';
-  const isHomePage = pathname === '/';
-
-  const goHomePage = () => {
-    if (isHomePage) {
-      return;
-    }
-
-    navigate('/');
-  };
 
   return (
     <HeaderStyled>
       <Container>
-        <Logo onClick={goHomePage}>Travel App</Logo>
+        <Logo to="/">Travel App</Logo>
         {!isAuthPage && (
           <Nav>
             <NavList>

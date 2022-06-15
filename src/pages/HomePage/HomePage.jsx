@@ -16,7 +16,9 @@ export default function HomePage({ trips }) {
     <>
       <Filter
         setSearchParams={setSearchParams}
-        initialState={{ filter, duration, level }}
+        filter={filter}
+        duration={duration}
+        level={level}
       />
       <TripsList trips={visibleTrips} />
     </>

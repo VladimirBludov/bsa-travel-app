@@ -1,54 +1,30 @@
 import PropTypes from 'prop-types';
-import { useEffect, useReducer, useRef } from 'react';
 import { Form, InputStyled, Section, Select } from './Filter.styles';
 
-function filterReducer(state, action) {
-  switch (action.type) {
-    case 'changeFilter':
-      return { ...state, filter: action.payload };
-    case 'changeDuration':
-      return { ...state, duration: action.payload };
-    case 'changeLevel':
-      return { ...state, level: action.payload };
-
-    default:
-      throw new Error(`Unsupported action type ${action.type}`);
-  }
-}
-
-export default function Filter({ setSearchParams, initialState }) {
-  const [state, dispatch] = useReducer(filterReducer, initialState);
-  const isFirstRender = useRef(true);
-
-  useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
-
+export default function Filter({ setSearchParams, filter, duration, level }) {
+  const handleChange = ({ target: { name, value } }) => {
     const params = {};
 
-    for (let [key, value] of Object.entries(state)) {
-      if (value) {
-        params[key] = value;
-      }
+    if (filter) params.filter = filter;
+    if (duration) params.duration = duration;
+    if (level) params.level = level;
+
+    switch (name) {
+      case 'filter':
+        params.filter = value;
+        break;
+      case 'duration':
+        params.duration = value;
+        break;
+      case 'level':
+        params.level = value;
+        break;
+
+      default:
+        break;
     }
 
     setSearchParams(params);
-  }, [setSearchParams, state]);
-
-  const handleChange = ({ target: { name, value } }) => {
-    switch (name) {
-      case 'filter':
-        return dispatch({ type: 'changeFilter', payload: value });
-      case 'duration':
-        return dispatch({ type: 'changeDuration', payload: value });
-      case 'level':
-        return dispatch({ type: 'changeLevel', payload: value });
-
-      default:
-        return;
-    }
   };
 
   return (
@@ -60,17 +36,13 @@ export default function Filter({ setSearchParams, initialState }) {
           hidden
           name="filter"
           type="search"
-          value={state.filter}
+          value={filter}
           onChange={handleChange}
           placeholder="search by title"
         />
         <label>
           <span className="visually-hidden">Search by duration</span>
-          <Select
-            name="duration"
-            value={state.duration}
-            onChange={handleChange}
-          >
+          <Select name="duration" value={duration} onChange={handleChange}>
             <option value="">duration</option>
             <option value="0_x_5">&lt; 5 days</option>
             <option value="5_x_10">&lt; 10 days</option>
@@ -79,7 +51,7 @@ export default function Filter({ setSearchParams, initialState }) {
         </label>
         <label>
           <span className="visually-hidden">Search by level</span>
-          <Select name="level" value={state.level} onChange={handleChange}>
+          <Select name="level" value={level} onChange={handleChange}>
             <option value="">level</option>
             <option value="easy">easy</option>
             <option value="moderate">moderate</option>
@@ -93,9 +65,7 @@ export default function Filter({ setSearchParams, initialState }) {
 
 Filter.propTypes = {
   setSearchParams: PropTypes.func.isRequired,
-  initialState: PropTypes.shape({
-    filter: PropTypes.string,
-    duration: PropTypes.string,
-    level: PropTypes.string,
-  }),
+  filter: PropTypes.string.isRequired,
+  duration: PropTypes.string.isRequired,
+  level: PropTypes.string.isRequired,
 };
